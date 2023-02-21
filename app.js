@@ -35,11 +35,11 @@ app.post("/create-checkout-session", async (req, res) => {
   res.redirect(303, session.url);
 });
 
-//stripe fulfillment
+//stripe fulfillment. after completed checkout send magiclink email
 app.post(
   "/webhook",
   bodyParser.raw({ type: "application/json" }),
-  (request, response) => {
+  async (request, response) => {
     const payload = request.body;
     const sig = request.headers["stripe-signature"];
 
@@ -49,6 +49,16 @@ app.post(
       event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
     } catch (err) {
       return response.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Handle the checkout.session.completed event
+    if (event.type === "checkout.session.completed") {
+      // Retrieve the session data.
+      const checkoutSessionData = event.data.object;
+      //get customer email from session data
+      const customerEmail = checkoutSessionData.customer_details.email;
+
+      console.log(customerEmail);
     }
 
     response.status(200).end();
