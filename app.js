@@ -15,3 +15,5 @@ app.listen(port, () => console.log(`Server started on port ${port}`));
 
 //route stripe requests
 app.use("/stripe", require("./routes/stripeRoutes"));
+//route auth requests
+app.use("/auth", require("./routes/authRoutes"));

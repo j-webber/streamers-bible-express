@@ -41,8 +41,12 @@ const webhook = async (request, response) => {
     const checkoutSessionData = event.data.object;
     //get customer email from session data
     const customerEmail = checkoutSessionData.customer_details.email;
-
-    console.log(customerEmail);
+    //get customer ID
+    const customer = await stripe.customers.search({
+      query: `email:\'${customerEmail}\'`,
+    });
+    const customerID = customer.data[0].id;
+    //need to create a post request to createUser
   }
 
   response.status(200).end();
