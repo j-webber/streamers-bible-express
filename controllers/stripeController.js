@@ -46,9 +46,29 @@ const webhook = async (request, response) => {
       query: `email:\'${customerEmail}\'`,
     });
     const customerID = customer.data[0].id;
-    //need to create a post request to createUser
+
+    //send email and ID to newUser
+    createNewUser(customerEmail, customerID);
   }
 
+  response.status(200).end();
+};
+
+const createNewUser = async (email, id) => {
+  try {
+    fetch("/auth/newuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        id,
+      }),
+    });
+  } catch (error) {
+    return response.status(400).send(`Create New User Error: ${err.message}`);
+  }
   response.status(200).end();
 };
 
