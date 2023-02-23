@@ -1,4 +1,5 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const { createNewUser } = require("../utils/newUser");
 
 //stripe checkout session
 const YOUR_DOMAIN = "http://localhost:5000";
@@ -48,24 +49,10 @@ const webhook = async (request, response) => {
     const customerID = customer.data[0].id;
 
     //send email and ID to newUser
-    createNewUser(customerEmail, customerID);
+    createNewUser({ email: customerEmail, id: customerID });
   }
 
   response.status(200).end();
-};
-
-//I don't think we can do a fetch server side - you can place this function in authcontroller and export?
-const createNewUser = async (email, id) => {
-  fetch("/auth/newuser", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email,
-      id,
-    }),
-  });
 };
 
 module.exports = { createCheckoutSession, webhook };
