@@ -54,22 +54,18 @@ const webhook = async (request, response) => {
   response.status(200).end();
 };
 
+//I don't think we can do a fetch server side - you can place this function in authcontroller and export?
 const createNewUser = async (email, id) => {
-  try {
-    fetch("/auth/newuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        id,
-      }),
-    });
-  } catch (error) {
-    return response.status(400).send(`Create New User Error: ${err.message}`);
-  }
-  response.status(200).end();
+  fetch("/auth/newuser", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      id,
+    }),
+  });
 };
 
 module.exports = { createCheckoutSession, webhook };

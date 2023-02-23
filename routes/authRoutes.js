@@ -8,5 +8,5 @@ const router = express.Router();
 
 router.post("/newuser", express.json(), newUser);
 router.post("/login", logIn);
-router.post("/verify", verifyToken);
+router.get("/verify", verifyToken);
 module.exports = router;

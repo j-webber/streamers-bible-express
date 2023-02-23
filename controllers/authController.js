@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const { sendMagicLinkEmail } = require("../mailer");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 //creates new jsonwebtoken
 const newToken = (id) => {
@@ -27,7 +28,19 @@ const logIn = async (req, res) => {
 };
 
 const verifyToken = async (req, res) => {
-  console.log("logging in...");
+  const token = req.query.token;
+  if (token == null) return res.sendStatus(401);
+
+  try {
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const stripeCusomterList = await stripe.customers.list;
+    const user = stripeCusomterList.data.find(
+      (u) => u.id === decodedToken.user.id
+    );
+    res.send(`Authed as ${user.name}`);
+  } catch (error) {
+    res.sendStatus(401);
+  }
 };
 
 module.exports = { newUser, logIn, verifyToken };
