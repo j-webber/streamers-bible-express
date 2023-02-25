@@ -12,9 +12,8 @@ const logIn = async (req, res) => {
 
   if (customer != null) {
     try {
-      const token = newToken({ id: customer.id });
-      //I think this is getting stuck here - smle is not returning any info? Also, the token is not valid?
-      return await sendMagicLinkEmail({ email: customer.email, token });
+      const token = newToken(customer.id);
+      await sendMagicLinkEmail({ email: customer.email, token });
     } catch (error) {
       return res.send("Error logging in. Please try again.");
     }
