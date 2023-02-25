@@ -4,15 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=PT+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <title>
       55 lists that make it easy to stream a great movie - The Movie Streamer's
       Bible
     </title>
   </head>
-  <body>
+  <body class="text-darkBlue bg-white">
+    <nav class="relative container mx-auto p-6">
+      <div class="flex items-center justify-between">
+        <div class="pt-2">The Movie Streamer's Bible</div>
+        <div class="hidden md:flex space-x-6">
+          <div class="p-3 px-6 pt-2 text-black bg-mediumGold rounded">
+            Log In
+          </div>
+          <div class="p-3 px-6 pt-2 text-white bg-darkBlue rounded">
+            Access The List
+          </div>
+        </div>
+      </div>
+    </nav>
     <main>
-      <h1>The Movie Streamer's Bible</h1>
+      <h1>Struggling to find the perfect movie? We've got you covered</h1>
+      <h2>Access 55 lists that make it easy to stream a great movie</h2>
       <form action="stripe/create-checkout-session" method="POST">
         <button type="submit" id="checkout-button">See The List - $9.99</button>
       </form>
