@@ -27,6 +27,7 @@ const verifyToken = async (req, res) => {
   if (token == null) return res.sendStatus(401);
 
   //this verifies token, then check's customer list to verify they are a valid user
+  //we will add session cookies here
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     const stripeCusomterList = await stripe.customers.list();
