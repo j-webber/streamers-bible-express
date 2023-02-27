@@ -547,6 +547,10 @@ video {
   }
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -586,6 +590,10 @@ video {
 
 .hidden {
   display: none;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .max-w-2xl {
@@ -796,6 +804,41 @@ video {
 
 .open .hamburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.before\:fixed::before {
+  content: var(--tw-content);
+  position: fixed;
+}
+
+.before\:left-0::before {
+  content: var(--tw-content);
+  left: 0px;
+}
+
+.before\:top-0::before {
+  content: var(--tw-content);
+  top: 0px;
+}
+
+.before\:block::before {
+  content: var(--tw-content);
+  display: block;
+}
+
+.before\:h-full::before {
+  content: var(--tw-content);
+  height: 100%;
+}
+
+.before\:w-full::before {
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.before\:bg-gradient-radial::before {
+  content: var(--tw-content);
+  background-image: radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8));
 }
 
 .hover\:bg-lightBlue:hover {

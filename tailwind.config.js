@@ -16,6 +16,10 @@ module.exports = {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
         serif: ["PT Serif", ...defaultTheme.fontFamily.serif],
       },
+      backgroundImage: {
+        "gradient-radial":
+          "radial-gradient(rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.8))",
+      },
     },
   },
   plugins: [],

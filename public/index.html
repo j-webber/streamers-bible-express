@@ -42,7 +42,7 @@
       <div class="md:hidden">
         <div
           id="menu"
-          class="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-10"
+          class="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white w-auto sm:self-center left-6 right-6 drop-shadow-md z-10"
         >
           <a href="#">Log In</a>
           <a href="#">Access The List</a>
@@ -53,6 +53,32 @@
       class="relative bg-lightGold border-y border-y-mediumGold"
       id="hero-section"
     >
+      <div
+        id="log-in"
+        class="before:contents-none before:block before:fixed before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-radial"
+      >
+        <div
+          class="fixed flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-10"
+        >
+          <h1>Already bought The Movie Streamer's Bibile?</h1>
+          <h1>Access the lists again</h1>
+          <p>
+            Already bought The Movie Streamer's Bible but lost you login email?
+            No worries, just enter the email address you used to buy it below.
+            Then I'll re-send your email
+          </p>
+          <form action="auth/login" method="post">
+            <label for="email"></label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email@example.com"
+            />
+            <button type="submit">Log In</button>
+          </form>
+        </div>
+      </div>
       <div
         class="container flex flex-col items-center max-w-2xl mx-auto pb-32 pt-32 space-y-10"
       >
