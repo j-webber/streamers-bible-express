@@ -15,12 +15,17 @@
     </title>
   </head>
   <body class="text-darkBlue bg-white">
+    <!--Nav-->
+
     <nav class="relative container mx-auto p-6">
       <div class="flex items-center justify-between">
         <div class="pt-2 text-2xl font-bold">The Movie Streamer's Bible</div>
+
+        <!--normal menu-->
+
         <div class="hidden md:flex space-x-6">
           <div
-            class="p-3 px-6 pt-2 text-black bg-mediumGold rounded-lg align-baseline hover:bg-lightGold cursor-pointer border border-mediumGold"
+            class="log-in-btn p-3 px-6 pt-2 text-black bg-mediumGold rounded-lg align-baseline hover:bg-lightGold cursor-pointer border border-mediumGold"
           >
             Log In
           </div>
@@ -30,6 +35,9 @@
             Access The List
           </div>
         </div>
+
+        <!--hamburger menu-->
+
         <button
           id="menu-btn"
           class="block hamburger md:hidden focus:outline-none"
@@ -39,46 +47,124 @@
           <span class="hamburger-bottom"></span>
         </button>
       </div>
+
+      <!--Mobile menue items-->
+
       <div class="md:hidden">
         <div
           id="menu"
           class="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white w-auto sm:self-center left-6 right-6 drop-shadow-md z-10"
         >
-          <a href="#">Log In</a>
-          <a href="#">Access The List</a>
+          <div class="log-in-btn cursor-pointer menu-item">Log In</div>
+          <div class="sign-up-btn cursor-pointer menu-item">
+            Access The Lists
+          </div>
         </div>
       </div>
     </nav>
+
+    <!--Hero section-->
+
     <section
       class="relative bg-lightGold border-y border-y-mediumGold"
       id="hero-section"
     >
+      <!--log in modal-->
+
       <div
         id="log-in"
-        class="before:contents-none before:block before:fixed before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-radial"
+        class="hidden before:contents-none before:block before:fixed before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-radial"
       >
         <div
-          class="fixed flex flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-10"
+          class="fixed flex flex-col items-center self-end py-7 px-14 mt-10 space-y-5 font-bold bg-white left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/4 drop-shadow-md z-10 max-w-xl rounded-md text-center max-h-[448px] overflow-scroll"
         >
-          <h1>Already bought The Movie Streamer's Bibile?</h1>
-          <h1>Access the lists again</h1>
-          <p>
+          <p
+            class="text-sm self-end underline cursor-pointer"
+            id="close-log-in"
+          >
+            close
+          </p>
+          <h1 class="text-3xl">Already bought The Movie Streamer's Bible?</h1>
+          <h1 class="text-3xl">🍿 Access the lists again</h1>
+          <p class="text-base font-light">
             Already bought The Movie Streamer's Bible but lost you login email?
             No worries, just enter the email address you used to buy it below.
             Then I'll re-send your email
           </p>
-          <form action="auth/login" method="post">
+          <form
+            action="auth/login"
+            method="post"
+            class="flex flex-col space-y-2 w-full"
+          >
             <label for="email"></label>
             <input
               type="email"
               name="email"
               id="email"
               placeholder="email@example.com"
+              class="border py-2 pl-5 placeholder:text-sm placeholder:font-medium focus:outline-none rounded"
             />
-            <button type="submit">Log In</button>
+            <button
+              type="submit"
+              class="p-3 px-6 pt-2 text-white bg-darkBlue rounded-lg align-baseline hover:bg-lightBlue cursor-pointer border border-darkBlue"
+            >
+              Log In
+            </button>
           </form>
         </div>
       </div>
+
+      <!--sign up modal-->
+
+      <div
+        id="sign-up"
+        class="hidden before:contents-none before:block before:fixed before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-radial"
+      >
+        <div
+          class="fixed flex py-7 px-14 mt-10 space-y-5 font-bold bg-white left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/4 drop-shadow-md z-10 max-w-3xl rounded-md"
+        >
+          <div class="w-1/2 border-r pr-2 m-auto">
+            <h1 class="text-3xl">Already bought The Movie Streamer's Bible?</h1>
+            <h1 class="text-3xl">🍿 Access the lists again</h1>
+            <p class="text-base font-light">
+              Already bought The Movie Streamer's Bible but lost you login
+              email? No worries, just enter the email address you used to buy it
+              below. Then I'll re-send your email
+            </p>
+          </div>
+          <div class="pl-3 m-auto">
+            <p
+              class="text-sm float-right underline cursor-pointer"
+              id="close-log-in"
+            >
+              close
+            </p>
+            <form
+              action="auth/login"
+              method="post"
+              class="flex flex-col space-y-2 w-full"
+            >
+              <label for="email"></label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@example.com"
+                class="border py-2 pl-5 placeholder:text-sm placeholder:font-medium focus:outline-none rounded"
+              />
+              <button
+                type="submit"
+                class="p-3 px-6 pt-2 text-white bg-darkBlue rounded-lg align-baseline hover:bg-lightBlue cursor-pointer border border-darkBlue"
+              >
+                Log In
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--Hero content-->
+
       <div
         class="container flex flex-col items-center max-w-2xl mx-auto pb-32 pt-32 space-y-10"
       >
