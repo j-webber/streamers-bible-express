@@ -16,6 +16,7 @@ const createCheckoutSession = async (req, res) => {
     success_url: `${YOUR_DOMAIN}/success.html`,
     cancel_url: `${YOUR_DOMAIN}/`,
     automatic_tax: { enabled: false },
+    customer_email: req.body.email,
   });
 
   res.redirect(303, session.url);
