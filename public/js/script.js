@@ -37,3 +37,22 @@ logInBtn.forEach((e) => {
 closeLogInBtn.addEventListener("click", () => {
   toggleLogIn();
 });
+
+//sign up
+const signUpBtn = document.querySelectorAll(".sign-up-btn");
+const signUp = document.getElementById("sign-up");
+const closeSignUpBtn = document.getElementById("close-sign-up");
+
+function toggleSignUp() {
+  signUp.classList.toggle("hidden");
+}
+
+signUpBtn.forEach((e) => {
+  e.addEventListener("click", () => {
+    toggleSignUp();
+  });
+});
+
+closeSignUpBtn.addEventListener("click", () => {
+  toggleSignUp();
+});
