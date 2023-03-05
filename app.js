@@ -7,8 +7,21 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+//register ejs as .html
+app.engine(".html", require("ejs").__express);
+
+//set default path to views
+app.set("views", path.join(__dirname, "views"));
+
 //set static folder
 app.use(express.static(path.join(__dirname, "public")));
+
+//set estension to res.render
+app.set("view engine", "html");
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
