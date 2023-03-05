@@ -7,9 +7,6 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-//register ejs as .html
-app.engine(".html", require("ejs").__express);
-
 //set default path to views
 app.set("views", path.join(__dirname, "views"));
 
@@ -17,7 +14,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 //set estension to res.render
-app.set("view engine", "html");
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("index");

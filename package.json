@@ -2,10 +2,10 @@
   "name": "streamers-bible-node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app",
-    "dev": "nodemon app",
+    "start": "node server",
+    "dev": "nodemon server",
     "build": "tailwindcss -i ./src/input.css -o ./public/css/main.css",
     "watch": "tailwindcss -i ./src/input.css -o ./public/css/main.css --watch"
   },
