@@ -56,3 +56,13 @@ signUpBtn.forEach((e) => {
 closeSignUpBtn.addEventListener("click", () => {
   toggleSignUp();
 });
+
+const list = document.querySelectorAll(".list");
+
+list.forEach((e) => {
+  e.addEventListener("click", (el) => {
+    console.log(el);
+    el.target.children[0].classList.toggle("rotate-90");
+    el.target.nextElementSibling.classList.toggle("hidden");
+  });
+});

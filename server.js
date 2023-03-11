@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, "public")));
 //set estension to res.render
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async (req, res) => {
+  res.render("index", { user: null });
 });
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

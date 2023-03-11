@@ -33,7 +33,7 @@ const verifyToken = async (req, res) => {
     const stripeCusomterList = await stripe.customers.list();
     const customers = stripeCusomterList.data;
     const customer = customers.find((c) => c.id === decodedToken.userID);
-    res.send(`Authed as ${customer.name}`);
+    res.render("index", { user: customer });
   } catch (error) {
     res.sendStatus(401);
   }

@@ -2,14 +2,15 @@
 <html lang="en">
   <%- include('./components/header.ejs') -%>
 
-  <body class="text-darkBlue bg-white">
+  <body class="text-darkBlue bg-white scroll-smooth">
     <!--Navbar-->
-
-    <%- include('./components/navbar.ejs') -%>
+    <% if (user == null) { %> <%- include('./components/navbar.ejs') -%> <% } %>
 
     <!--Hero section-->
 
-    <%- include('./components/hero.ejs') -%>
+    <% if (user == null) { %> <%- include('./components/hero.ejs') -%> <% } %>
+    <% if (user !== null) { %> <%- include('./components/userHero.ejs') -%> <% }
+    %>
 
     <main>
       <!--Lists Section-->
@@ -17,6 +18,10 @@
       <%- include('./components/lists.ejs') -%>
     </main>
 
-    <script src="js/script.js"></script>
+    <script src="http://localhost:5000/js/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/bb1b9a6661.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
